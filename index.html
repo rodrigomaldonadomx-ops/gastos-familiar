@@ -37,7 +37,6 @@
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 html, body { height: 100%; background: var(--bg); color: var(--text); font-family: 'DM Mono', monospace; overflow: hidden; }
 
-/* Shell */
 #app { display: flex; flex-direction: column; height: 100vh; height: 100dvh; }
 #topbar {
   padding: calc(var(--safe-top) + 14px) 20px 14px;
@@ -48,11 +47,10 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
 }
 .topbar-title { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 300; color: var(--text); }
 .topbar-title span { color: var(--accent); font-style: italic; }
-.topbar-month { font-size: 11px; color: var(--text2); letter-spacing: 0.05em; text-transform: uppercase; text-align: right; line-height: 1.4; }
+.topbar-sub { font-size: 10px; color: var(--text3); text-align: right; line-height: 1.5; }
 
 #content { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 16px 16px calc(80px + var(--safe-bot)); }
 
-/* Bottom nav */
 #bottomnav {
   position: fixed; bottom: 0; left: 0; right: 0;
   padding: 10px 0 calc(var(--safe-bot) + 10px);
@@ -65,26 +63,22 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
 .nav-btn svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 .nav-btn.active { color: var(--accent); }
 
-/* Cards */
 .card { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--r); padding: 16px; margin-bottom: 12px; }
 .card-title { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text2); margin-bottom: 12px; }
 
-/* Summary row */
 .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
 .metric { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--r); padding: 14px; }
 .metric.full { grid-column: 1 / -1; }
 .metric-label { font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text2); margin-bottom: 6px; }
-.metric-value { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 300; }
+.metric-value { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 300; }
 .metric-value.ok { color: var(--safe); }
 .metric-value.warn { color: var(--warn); }
 .metric-value.bad { color: var(--danger); }
 .metric-sub { font-size: 10px; color: var(--text3); margin-top: 3px; }
 
-/* Progress bar */
 .progress-wrap { height: 3px; background: var(--surface2); border-radius: 2px; margin-top: 10px; overflow: hidden; }
 .progress-bar { height: 3px; border-radius: 2px; transition: width 0.4s ease; }
 
-/* Expense list */
 .expense-item { display: flex; align-items: center; gap: 10px; padding: 11px 0; border-bottom: 0.5px solid var(--border); }
 .expense-item:last-child { border-bottom: none; }
 .cat-pill { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
@@ -97,15 +91,13 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
 .expense-del:active { color: var(--danger); }
 .expense-del svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; }
 
-/* Category bars */
 .cat-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-.cat-name { font-size: 11px; color: var(--text2); width: 100px; flex-shrink: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cat-name { font-size: 11px; color: var(--text2); width: 90px; flex-shrink: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .cat-bar-bg { flex: 1; height: 3px; background: var(--surface2); border-radius: 2px; overflow: hidden; }
 .cat-bar-fill { height: 3px; border-radius: 2px; transition: width 0.4s ease; }
 .cat-amt { font-size: 11px; color: var(--text); width: 65px; text-align: right; flex-shrink: 0; font-family: 'Fraunces', serif; font-weight: 300; }
 
-/* Form */
-.form-section { margin-bottom: 24px; }
+.form-section { margin-bottom: 20px; }
 .form-label { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text2); margin-bottom: 8px; display: block; }
 .form-input {
   width: 100%; background: var(--surface); border: 0.5px solid var(--border2);
@@ -118,7 +110,6 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
 .amount-wrap { position: relative; }
 .amount-prefix { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text2); font-size: 15px; pointer-events: none; }
 .amount-wrap .form-input { padding-left: 28px; font-size: 22px; font-family: 'Fraunces', serif; font-weight: 300; }
-.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
 .cat-opt { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--r-sm); padding: 10px 6px; text-align: center; cursor: pointer; transition: all 0.15s; }
 .cat-opt .dot { width: 8px; height: 8px; border-radius: 50%; margin: 0 auto 5px; }
@@ -136,31 +127,50 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
   transition: opacity 0.15s; margin-top: 8px;
 }
 .btn-submit:active { opacity: 0.8; }
+.btn-submit:disabled { opacity: 0.4; }
+.btn-secondary {
+  width: 100%; background: transparent; color: var(--text2);
+  border: 0.5px solid var(--border2); border-radius: var(--r); padding: 13px;
+  font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.06em;
+  text-transform: uppercase; cursor: pointer; transition: all 0.15s; margin-top: 8px;
+}
+.btn-secondary:active { background: var(--surface2); }
+.btn-danger {
+  width: 100%; background: var(--danger-dim); color: var(--danger);
+  border: 0.5px solid var(--danger); border-radius: var(--r); padding: 13px;
+  font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.06em;
+  text-transform: uppercase; cursor: pointer; transition: opacity 0.15s; margin-top: 8px;
+}
+.btn-danger:active { opacity: 0.7; }
 
-/* Empty state */
 .empty { text-align: center; padding: 40px 20px; color: var(--text3); font-size: 12px; line-height: 2; }
 
-/* Toast */
 #toast { position: fixed; bottom: calc(80px + var(--safe-bot) + 12px); left: 50%; transform: translateX(-50%) translateY(20px); background: var(--surface2); border: 0.5px solid var(--border2); border-radius: 20px; padding: 9px 18px; font-size: 12px; color: var(--text); white-space: nowrap; opacity: 0; transition: all 0.2s; z-index: 200; pointer-events: none; }
 #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-/* Month nav */
-.month-nav { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
-.month-nav-btn { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--r-sm); padding: 6px 12px; color: var(--text2); font-family: 'DM Mono', monospace; font-size: 12px; cursor: pointer; }
-.month-nav-label { flex: 1; text-align: center; font-size: 13px; color: var(--text); }
+.quincena-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--r); padding: 16px; margin-bottom: 10px; }
+.quincena-card.activa { border-color: var(--accent); }
+.quincena-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.quincena-label { font-size: 13px; color: var(--text); }
+.quincena-badge { font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 8px; border-radius: 10px; }
+.badge-activa { background: var(--accent-dim); color: var(--accent); }
+.badge-cerrada { background: var(--surface2); color: var(--text3); }
+.quincena-nums { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+.qnum { text-align: center; }
+.qnum-val { font-family: 'Fraunces', serif; font-size: 15px; font-weight: 300; }
+.qnum-label { font-size: 9px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px; }
 
-/* Filter chips */
-.chips { display: flex; gap: 8px; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; margin-bottom: 12px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-.chips::-webkit-scrollbar { display: none; }
-.chip { background: var(--surface); border: 0.5px solid var(--border); border-radius: 20px; padding: 5px 12px; font-size: 11px; color: var(--text2); cursor: pointer; white-space: nowrap; transition: all 0.15s; flex-shrink: 0; }
-.chip.active { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
-
-/* Loading */
 #loading { position: fixed; inset: 0; background: var(--bg); display: flex; align-items: center; justify-content: center; z-index: 500; flex-direction: column; gap: 16px; }
 .loading-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 1.2s ease-in-out infinite; }
 @keyframes pulse { 0%,100%{opacity:0.2;transform:scale(0.8)} 50%{opacity:1;transform:scale(1)} }
 
 select.form-input { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+
+.divider { height: 0.5px; background: var(--border); margin: 14px 0; }
+.chips { display: flex; gap: 8px; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; margin-bottom: 12px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.chips::-webkit-scrollbar { display: none; }
+.chip { background: var(--surface); border: 0.5px solid var(--border); border-radius: 20px; padding: 5px 12px; font-size: 11px; color: var(--text2); cursor: pointer; white-space: nowrap; transition: all 0.15s; flex-shrink: 0; }
+.chip.active { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
 </style>
 </head>
 <body>
@@ -173,11 +183,9 @@ select.form-input { appearance: none; -webkit-appearance: none; background-image
 <div id="app" style="display:none;">
   <div id="topbar">
     <div class="topbar-title">gastos <span>familia</span></div>
-    <div class="topbar-month" id="topbar-month">—</div>
+    <div class="topbar-sub" id="topbar-sub">—</div>
   </div>
-
   <div id="content"></div>
-
   <nav id="bottomnav">
     <button class="nav-btn active" id="nav-inicio" onclick="goTo('inicio')">
       <svg viewBox="0 0 24 24"><path d="M3 12L12 3l9 9"/><path d="M9 21V12h6v9"/></svg>
@@ -201,59 +209,55 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
 const SUPABASE_URL = 'https://ipxactmjulhrymgeekjs.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_IueXLyaXs45GtppA7-ALCw_xOcEeC8T';
-const DISPONIBLE = 22676;
-
 const sb = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 const CATS = {
-  despensa:  { label: 'Despensa',   color: '#64d4a0' },
-  gasolina:  { label: 'Gasolina',   color: '#378ADD' },
-  salidas:   { label: 'Salidas',    color: '#ff8c69' },
-  medico:    { label: 'Médico',     color: '#D4537E' },
-  ropa:      { label: 'Ropa',       color: '#a78bfa' },
-  ninos:     { label: 'Niños',      color: '#ffb347' },
-  hogar:     { label: 'Hogar',      color: '#888' },
-  otros:     { label: 'Otros',      color: '#555' }
+  despensa:  { label: 'Despensa',  color: '#64d4a0' },
+  gasolina:  { label: 'Gasolina',  color: '#378ADD' },
+  salidas:   { label: 'Salidas',   color: '#ff8c69' },
+  medico:    { label: 'Médico',    color: '#D4537E' },
+  ropa:      { label: 'Ropa',      color: '#a78bfa' },
+  ninos:     { label: 'Niños',     color: '#ffb347' },
+  hogar:     { label: 'Hogar',     color: '#888' },
+  otros:     { label: 'Otros',     color: '#555' }
 };
 
 let gastos = [];
+let quincenas = [];
 let currentPage = 'inicio';
-let mesActual = new Date(); mesActual.setDate(1);
 let filtroActivo = 'todos';
 let formState = { monto: '', cat: 'despensa', quien: 'Karen', desc: '', fecha: hoyISO() };
+let nuevaQState = { label: '', disponible: '', fecha_inicio: hoyISO() };
 
-function hoyISO() {
-  return new Date().toISOString().slice(0, 10);
+function hoyISO() { return new Date().toISOString().slice(0, 10); }
+function fmt(n) { return '$' + Math.abs(Math.round(n)).toLocaleString('es-MX'); }
+function fmtSigned(n) { return (n >= 0 ? '+' : '-') + fmt(n); }
+
+function quincenaActiva() {
+  return quincenas.find(q => !q.cerrada) || null;
 }
 
-function fmt(n) {
-  return '$' + Math.abs(Math.round(n)).toLocaleString('es-MX');
-}
-
-function mesLabel(d) {
-  const M = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
-  return M[d.getMonth()] + ' ' + d.getFullYear();
-}
-
-function mesKey(d) {
-  return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0');
-}
-
-function gastosMes(d) {
-  const k = mesKey(d);
-  return gastos.filter(g => g.fecha && g.fecha.startsWith(k));
+function gastosDeQuincena(q) {
+  if (!q) return [];
+  const inicio = q.fecha_inicio;
+  const cierre = q.fecha_cierre || '9999-12-31';
+  return gastos.filter(g => g.fecha >= inicio && g.fecha <= cierre && g.quincena_id === q.id);
 }
 
 async function cargar() {
-  const { data, error } = await sb.from('gastos').select('*').order('fecha', { ascending: false }).order('created_at', { ascending: false });
-  if (!error && data) gastos = data;
+  const [{ data: gd }, { data: qd }] = await Promise.all([
+    sb.from('gastos').select('*').order('fecha', { ascending: false }).order('created_at', { ascending: false }),
+    sb.from('quincenas').select('*').order('fecha_inicio', { ascending: false })
+  ]);
+  if (gd) gastos = gd;
+  if (qd) quincenas = qd;
 }
 
 function toast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg;
   t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2000);
+  setTimeout(() => t.classList.remove('show'), 2200);
 }
 
 function goTo(page) {
@@ -263,33 +267,46 @@ function goTo(page) {
   render();
 }
 
+window.goTo = goTo;
+
 function render() {
   const c = document.getElementById('content');
-  const meses = gastosMes(mesActual);
-  const total = meses.reduce((s, g) => s + Number(g.monto), 0);
-  const rem = DISPONIBLE - total;
-  const pct = Math.min(100, Math.round((total / DISPONIBLE) * 100));
+  const qa = quincenaActiva();
+  document.getElementById('topbar-sub').textContent = qa ? qa.label : 'sin quincena activa';
 
-  document.getElementById('topbar-month').innerHTML = mesLabel(mesActual) + '<br><span style="color:var(--text3);font-size:10px;">' + meses.length + ' movimientos</span>';
-
-  if (currentPage === 'inicio') renderInicio(c, meses, total, rem, pct);
-  else if (currentPage === 'agregar') renderAgregar(c);
-  else if (currentPage === 'historial') renderHistorial(c, meses, total);
+  if (currentPage === 'inicio') renderInicio(c, qa);
+  else if (currentPage === 'agregar') renderAgregar(c, qa);
+  else if (currentPage === 'historial') renderHistorial(c);
 }
 
-function renderInicio(c, meses, total, rem, pct) {
-  const colorRem = rem > 10000 ? 'ok' : rem > 0 ? 'warn' : 'bad';
-  const porCat = {};
-  meses.forEach(g => { porCat[g.categoria] = (porCat[g.categoria] || 0) + Number(g.monto); });
-  const maxCat = Math.max(...Object.values(porCat), 1);
+function renderInicio(c, qa) {
+  if (!qa) {
+    c.innerHTML = `
+      <div class="card" style="margin-top:8px;text-align:center;padding:32px 20px;">
+        <div style="font-family:'Fraunces',serif;font-size:20px;font-weight:300;color:var(--text);margin-bottom:8px;">sin quincena activa</div>
+        <div style="font-size:12px;color:var(--text3);margin-bottom:24px;line-height:1.8;">registra la primera quincena<br>para empezar a trackear</div>
+        <button class="btn-submit" style="max-width:260px;margin:0 auto;" onclick="goTo('historial')">abrir nueva quincena</button>
+      </div>`;
+    return;
+  }
 
-  const recientes = meses.slice(0, 5);
+  const lista = gastosDeQuincena(qa);
+  const gastado = lista.reduce((s, g) => s + Number(g.monto), 0);
+  const totalDisp = Number(qa.disponible) + Number(qa.remanente_anterior);
+  const rem = totalDisp - gastado;
+  const pct = Math.min(100, Math.round((gastado / totalDisp) * 100));
+  const colorRem = rem > totalDisp * 0.4 ? 'ok' : rem > 0 ? 'warn' : 'bad';
+
+  const porCat = {};
+  lista.forEach(g => { porCat[g.categoria] = (porCat[g.categoria] || 0) + Number(g.monto); });
+  const maxCat = Math.max(...Object.values(porCat), 1);
+  const recientes = lista.slice(0, 5);
 
   c.innerHTML = `
     <div class="summary-grid">
       <div class="metric">
         <div class="metric-label">Gastado</div>
-        <div class="metric-value ${pct > 80 ? 'bad' : pct > 60 ? 'warn' : 'ok'}">${fmt(total)}</div>
+        <div class="metric-value ${pct > 80 ? 'bad' : pct > 60 ? 'warn' : 'ok'}">${fmt(gastado)}</div>
         <div class="metric-sub">${pct}% del disponible</div>
         <div class="progress-wrap"><div class="progress-bar" style="width:${pct}%;background:${pct>80?'var(--danger)':pct>60?'var(--warn)':'var(--safe)'}"></div></div>
       </div>
@@ -298,17 +315,28 @@ function renderInicio(c, meses, total, rem, pct) {
         <div class="metric-value ${colorRem}">${fmt(rem)}</div>
         <div class="metric-sub">${rem >= 0 ? 'disponible' : 'excedido'}</div>
       </div>
+      ${Number(qa.remanente_anterior) > 0 ? `
+      <div class="metric full" style="display:flex;justify-content:space-between;align-items:center;">
+        <div>
+          <div class="metric-label">Arrastre quincena anterior</div>
+          <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:300;color:var(--safe);">${fmt(qa.remanente_anterior)}</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="metric-label">Total disponible</div>
+          <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:300;color:var(--text);">${fmt(totalDisp)}</div>
+        </div>
+      </div>` : ''}
     </div>
 
     <div class="card">
       <div class="card-title">Por categoría</div>
       ${Object.keys(porCat).length === 0
-        ? '<div class="empty" style="padding:16px 0;">Sin registros este mes</div>'
+        ? '<div class="empty" style="padding:12px 0 4px;">sin registros aún</div>'
         : Object.entries(porCat).sort((a,b)=>b[1]-a[1]).map(([cat,val]) => {
-            const c2 = CATS[cat] || CATS.otros;
+            const cc = CATS[cat] || CATS.otros;
             return `<div class="cat-row">
-              <div class="cat-name">${c2.label}</div>
-              <div class="cat-bar-bg"><div class="cat-bar-fill" style="width:${Math.round(val/maxCat*100)}%;background:${c2.color}"></div></div>
+              <div class="cat-name">${cc.label}</div>
+              <div class="cat-bar-bg"><div class="cat-bar-fill" style="width:${Math.round(val/maxCat*100)}%;background:${cc.color}"></div></div>
               <div class="cat-amt">${fmt(val)}</div>
             </div>`;
           }).join('')
@@ -318,11 +346,136 @@ function renderInicio(c, meses, total, rem, pct) {
     <div class="card">
       <div class="card-title">Últimos movimientos</div>
       ${recientes.length === 0
-        ? '<div class="empty" style="padding:16px 0;">Sin registros este mes</div>'
+        ? '<div class="empty" style="padding:12px 0 4px;">sin registros aún</div>'
         : recientes.map(g => itemHTML(g)).join('')
       }
-      ${meses.length > 5 ? `<div style="text-align:center;padding-top:10px;"><button onclick="goTo('historial')" style="background:none;border:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;">ver todos →</button></div>` : ''}
+      ${lista.length > 5 ? `<div style="text-align:center;padding-top:10px;"><button onclick="goTo('historial')" style="background:none;border:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;">ver todos →</button></div>` : ''}
     </div>
+  `;
+}
+
+function renderAgregar(c, qa) {
+  if (!qa) {
+    c.innerHTML = `<div class="card" style="margin-top:8px;text-align:center;padding:32px 20px;">
+      <div style="font-size:12px;color:var(--text3);margin-bottom:20px;line-height:1.8;">necesitas una quincena activa<br>para registrar gastos</div>
+      <button class="btn-submit" style="max-width:260px;margin:0 auto;" onclick="goTo('historial')">abrir quincena</button>
+    </div>`;
+    return;
+  }
+
+  c.innerHTML = `
+    <div style="font-size:10px;color:var(--text3);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:12px;margin-top:4px;">quincena activa: ${qa.label}</div>
+    <div class="card">
+      <div class="form-section">
+        <label class="form-label">Monto</label>
+        <div class="amount-wrap">
+          <span class="amount-prefix">$</span>
+          <input class="form-input" type="number" inputmode="decimal" placeholder="0" id="f-monto" value="${formState.monto}" oninput="formState.monto=this.value" />
+        </div>
+      </div>
+      <div class="form-section">
+        <label class="form-label">Categoría</label>
+        <div class="cat-grid">
+          ${Object.entries(CATS).map(([k,v]) => `
+            <div class="cat-opt ${formState.cat===k?'selected':''}" onclick="selCat('${k}')">
+              <div class="dot" style="background:${v.color}"></div>
+              <div class="lbl">${v.label}</div>
+            </div>`).join('')}
+        </div>
+      </div>
+      <div class="form-section">
+        <label class="form-label">¿Quién gastó?</label>
+        <div class="quien-grid">
+          ${['Karen','Yo','Ambos'].map(q => `
+            <div class="quien-opt ${formState.quien===q?'selected':''}" onclick="selQuien('${q}')">${q}</div>`).join('')}
+        </div>
+      </div>
+      <div class="form-section">
+        <label class="form-label">Descripción (opcional)</label>
+        <input class="form-input" type="text" placeholder="ej. Walmart semanal" id="f-desc" value="${formState.desc}" oninput="formState.desc=this.value" />
+      </div>
+      <div class="form-section" style="margin-bottom:0;">
+        <label class="form-label">Fecha</label>
+        <input class="form-input" type="date" id="f-fecha" value="${formState.fecha}" oninput="formState.fecha=this.value" />
+      </div>
+      <button class="btn-submit" onclick="agregar()">Registrar gasto</button>
+    </div>`;
+  setTimeout(() => document.getElementById('f-monto')?.focus(), 100);
+}
+
+function renderHistorial(c) {
+  const qa = quincenaActiva();
+  const cerradas = quincenas.filter(q => q.cerrada);
+
+  c.innerHTML = `
+    <div class="card" style="margin-top:4px;">
+      <div class="card-title">Nueva quincena</div>
+      <div class="form-section">
+        <label class="form-label">Nombre (ej. "1-15 junio")</label>
+        <input class="form-input" type="text" placeholder="1-15 junio 2025" id="nq-label" value="${nuevaQState.label}" oninput="nuevaQState.label=this.value" />
+      </div>
+      <div class="form-section">
+        <label class="form-label">Disponible esta quincena ($)</label>
+        <div class="amount-wrap">
+          <span class="amount-prefix">$</span>
+          <input class="form-input" type="number" inputmode="decimal" placeholder="0" id="nq-disp" value="${nuevaQState.disponible}" oninput="nuevaQState.disponible=this.value" style="padding-left:28px;font-size:20px;font-family:'Fraunces',serif;font-weight:300;" />
+        </div>
+        <div style="font-size:10px;color:var(--text3);margin-top:6px;">lo que queda después de tus gastos fijos</div>
+      </div>
+      <div class="form-section" style="margin-bottom:0;">
+        <label class="form-label">Fecha de inicio</label>
+        <input class="form-input" type="date" id="nq-fecha" value="${nuevaQState.fecha_inicio}" oninput="nuevaQState.fecha_inicio=this.value" />
+      </div>
+      <button class="btn-submit" onclick="abrirQuincena()" ${qa ? 'disabled' : ''}>
+        ${qa ? 'cierra la quincena activa primero' : 'abrir quincena'}
+      </button>
+    </div>
+
+    ${qa ? `
+    <div class="card" style="border-color:var(--accent);">
+      <div class="card-title" style="color:var(--accent);">Quincena activa</div>
+      ${quincenaResumenHTML(qa)}
+      <div class="divider"></div>
+      <button class="btn-danger" onclick="cerrarQuincena('${qa.id}')">cerrar quincena y arrastrar remanente</button>
+    </div>` : ''}
+
+    ${cerradas.length > 0 ? `
+    <div style="font-size:10px;color:var(--text3);letter-spacing:0.06em;text-transform:uppercase;margin:16px 0 10px;">historial</div>
+    ${cerradas.map(q => `
+      <div class="quincena-card">
+        ${quincenaResumenHTML(q)}
+      </div>`).join('')}
+    ` : ''}
+  `;
+}
+
+function quincenaResumenHTML(q) {
+  const lista = gastosDeQuincena(q);
+  const gastado = lista.reduce((s, g) => s + Number(g.monto), 0);
+  const totalDisp = Number(q.disponible) + Number(q.remanente_anterior);
+  const rem = totalDisp - gastado;
+  const colorRem = rem >= 0 ? 'var(--safe)' : 'var(--danger)';
+
+  return `
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
+      <div style="font-size:14px;color:var(--text);">${q.label}</div>
+      <span class="quincena-badge ${q.cerrada?'badge-cerrada':'badge-activa'}">${q.cerrada?'cerrada':'activa'}</span>
+    </div>
+    <div class="quincena-nums">
+      <div class="qnum">
+        <div class="qnum-val">${fmt(totalDisp)}</div>
+        <div class="qnum-label">disponible</div>
+      </div>
+      <div class="qnum">
+        <div class="qnum-val" style="color:var(--danger);">${fmt(gastado)}</div>
+        <div class="qnum-label">gastado</div>
+      </div>
+      <div class="qnum">
+        <div class="qnum-val" style="color:${colorRem};">${fmt(rem)}</div>
+        <div class="qnum-label">${rem >= 0 ? 'remanente' : 'excedido'}</div>
+      </div>
+    </div>
+    ${Number(q.remanente_anterior) > 0 ? `<div style="font-size:10px;color:var(--text3);margin-top:8px;">incluye ${fmt(q.remanente_anterior)} arrastrado de quincena anterior</div>` : ''}
   `;
 }
 
@@ -340,92 +493,88 @@ function itemHTML(g) {
   </div>`;
 }
 
-function renderAgregar(c) {
-  c.innerHTML = `
-    <div class="card" style="margin-top:4px;">
-      <div class="form-section">
-        <label class="form-label">Monto</label>
-        <div class="amount-wrap">
-          <span class="amount-prefix">$</span>
-          <input class="form-input" type="number" inputmode="decimal" placeholder="0" id="f-monto" value="${formState.monto}" oninput="formState.monto=this.value" />
-        </div>
-      </div>
+window.selCat = (k) => { formState.cat = k; renderAgregar(document.getElementById('content'), quincenaActiva()); };
+window.selQuien = (q) => { formState.quien = q; renderAgregar(document.getElementById('content'), quincenaActiva()); };
 
-      <div class="form-section">
-        <label class="form-label">Categoría</label>
-        <div class="cat-grid">
-          ${Object.entries(CATS).map(([k,v]) => `
-            <div class="cat-opt ${formState.cat===k?'selected':''}" onclick="selCat('${k}')">
-              <div class="dot" style="background:${v.color}"></div>
-              <div class="lbl">${v.label}</div>
-            </div>
-          `).join('')}
-        </div>
-      </div>
+window.abrirQuincena = async () => {
+  const label = nuevaQState.label.trim();
+  const disponible = parseFloat(nuevaQState.disponible);
+  if (!label) { toast('Ponle nombre a la quincena'); return; }
+  if (!disponible || disponible <= 0) { toast('Ingresa el monto disponible'); return; }
 
-      <div class="form-section">
-        <label class="form-label">¿Quién gastó?</label>
-        <div class="quien-grid">
-          ${['Karen','Yo','Ambos'].map(q => `
-            <div class="quien-opt ${formState.quien===q?'selected':''}" onclick="selQuien('${q}')">${q}</div>
-          `).join('')}
-        </div>
-      </div>
+  const qa = quincenaActiva();
+  if (qa) { toast('Cierra la quincena activa primero'); return; }
 
-      <div class="form-section">
-        <label class="form-label">Descripción (opcional)</label>
-        <input class="form-input" type="text" placeholder="ej. Walmart semanal" id="f-desc" value="${formState.desc}" oninput="formState.desc=this.value" />
-      </div>
+  const ultimaCerrada = quincenas.find(q => q.cerrada);
+  let remanente_anterior = 0;
+  if (ultimaCerrada) {
+    const gastadoUlt = gastosDeQuincena(ultimaCerrada).reduce((s,g) => s + Number(g.monto), 0);
+    remanente_anterior = Math.max(0, Number(ultimaCerrada.disponible) + Number(ultimaCerrada.remanente_anterior) - gastadoUlt);
+  }
 
-      <div class="form-section" style="margin-bottom:0;">
-        <label class="form-label">Fecha</label>
-        <input class="form-input" type="date" id="f-fecha" value="${formState.fecha}" oninput="formState.fecha=this.value" />
-      </div>
+  const btn = document.querySelector('.btn-submit');
+  if (btn) { btn.textContent = 'Abriendo...'; btn.disabled = true; }
 
-      <button class="btn-submit" onclick="agregar()">Registrar gasto</button>
-    </div>
-  `;
-  setTimeout(() => document.getElementById('f-monto')?.focus(), 100);
-}
+  const { data, error } = await sb.from('quincenas').insert([{
+    label,
+    disponible,
+    remanente_anterior,
+    cerrada: false,
+    fecha_inicio: nuevaQState.fecha_inicio || hoyISO()
+  }]).select();
 
-function renderHistorial(c, meses, total) {
-  const filtrados = filtroActivo === 'todos' ? meses : meses.filter(g => g.categoria === filtroActivo);
-  const cats = [...new Set(meses.map(g => g.categoria))];
-
-  c.innerHTML = `
-    <div class="month-nav">
-      <button class="month-nav-btn" onclick="cambiarMes(-1)">←</button>
-      <span class="month-nav-label">${mesLabel(mesActual)}</span>
-      <button class="month-nav-btn" onclick="cambiarMes(1)">→</button>
-    </div>
-    <div class="chips">
-      <div class="chip ${filtroActivo==='todos'?'active':''}" onclick="setFiltro('todos')">Todos</div>
-      ${cats.map(cat => `<div class="chip ${filtroActivo===cat?'active':''}" onclick="setFiltro('${cat}')">${CATS[cat]?.label||cat}</div>`).join('')}
-    </div>
-    <div class="card">
-      ${filtrados.length === 0
-        ? '<div class="empty">Sin registros<br>este período</div>'
-        : filtrados.map(g => itemHTML(g)).join('')
-      }
-    </div>
-    <div style="text-align:center;font-size:11px;color:var(--text3);padding-bottom:8px;">
-      ${filtrados.length} movimiento${filtrados.length!==1?'s':''} · total ${fmt(filtrados.reduce((s,g)=>s+Number(g.monto),0))}
-    </div>
-  `;
-}
-
-window.selCat = (k) => { formState.cat = k; renderAgregar(document.getElementById('content')); };
-window.selQuien = (q) => { formState.quien = q; renderAgregar(document.getElementById('content')); };
-window.goTo = goTo;
-
-window.cambiarMes = (dir) => {
-  mesActual = new Date(mesActual.getFullYear(), mesActual.getMonth() + dir, 1);
-  render();
+  if (!error && data) {
+    quincenas.unshift(data[0]);
+    nuevaQState = { label: '', disponible: '', fecha_inicio: hoyISO() };
+    toast('✓ Quincena abierta');
+    goTo('inicio');
+  } else {
+    toast('Error al abrir quincena');
+    if (btn) { btn.textContent = 'abrir quincena'; btn.disabled = false; }
+  }
 };
 
-window.setFiltro = (f) => {
-  filtroActivo = f;
-  render();
+window.cerrarQuincena = async (id) => {
+  if (!confirm('¿Cerrar esta quincena? El remanente se arrastrará a la siguiente.')) return;
+  const { error } = await sb.from('quincenas').update({ cerrada: true, fecha_cierre: hoyISO() }).eq('id', id);
+  if (!error) {
+    const q = quincenas.find(q => q.id === id);
+    if (q) q.cerrada = true, q.fecha_cierre = hoyISO();
+    toast('✓ Quincena cerrada');
+    render();
+  } else {
+    toast('Error al cerrar');
+  }
+};
+
+window.agregar = async () => {
+  const monto = parseFloat(formState.monto);
+  if (!monto || monto <= 0) { toast('Ingresa un monto válido'); return; }
+  const qa = quincenaActiva();
+  if (!qa) { toast('No hay quincena activa'); return; }
+
+  const btn = document.querySelector('.btn-submit');
+  if (btn) { btn.textContent = 'Guardando...'; btn.disabled = true; }
+
+  const { data, error } = await sb.from('gastos').insert([{
+    fecha: formState.fecha || hoyISO(),
+    monto,
+    categoria: formState.cat,
+    descripcion: formState.desc || null,
+    quien: formState.quien,
+    quincena_id: qa.id
+  }]).select();
+
+  if (btn) { btn.textContent = 'Registrar gasto'; btn.disabled = false; }
+
+  if (!error && data) {
+    gastos.unshift(data[0]);
+    formState = { monto: '', cat: 'despensa', quien: 'Karen', desc: '', fecha: hoyISO() };
+    toast('✓ Gasto registrado');
+    goTo('inicio');
+  } else {
+    toast('Error al guardar');
+  }
 };
 
 window.eliminar = async (id) => {
@@ -435,34 +584,6 @@ window.eliminar = async (id) => {
     gastos = gastos.filter(g => g.id !== id);
     toast('Gasto eliminado');
     render();
-  }
-};
-
-window.agregar = async () => {
-  const monto = parseFloat(formState.monto);
-  if (!monto || monto <= 0) { toast('Ingresa un monto válido'); return; }
-  const btn = document.querySelector('.btn-submit');
-  btn.textContent = 'Guardando...';
-  btn.disabled = true;
-
-  const { data, error } = await sb.from('gastos').insert([{
-    fecha: formState.fecha || hoyISO(),
-    monto,
-    categoria: formState.cat,
-    descripcion: formState.desc || null,
-    quien: formState.quien
-  }]).select();
-
-  btn.textContent = 'Registrar gasto';
-  btn.disabled = false;
-
-  if (!error && data) {
-    gastos.unshift(data[0]);
-    formState = { monto: '', cat: 'despensa', quien: 'Karen', desc: '', fecha: hoyISO() };
-    toast('✓ Gasto registrado');
-    goTo('inicio');
-  } else {
-    toast('Error al guardar. Intenta de nuevo.');
   }
 };
 
