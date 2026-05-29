@@ -497,8 +497,9 @@ window.selCat = (k) => { formState.cat = k; renderAgregar(document.getElementByI
 window.selQuien = (q) => { formState.quien = q; renderAgregar(document.getElementById('content'), quincenaActiva()); };
 
 window.abrirQuincena = async () => {
-  const label = nuevaQState.label.trim();
-  const disponible = parseFloat(nuevaQState.disponible);
+  const label = (document.getElementById('nq-label')?.value || '').trim();
+  const disponible = parseFloat(document.getElementById('nq-disp')?.value || '');
+  const fechaInicio = document.getElementById('nq-fecha')?.value || hoyISO();
   if (!label) { toast('Ponle nombre a la quincena'); return; }
   if (!disponible || disponible <= 0) { toast('Ingresa el monto disponible'); return; }
 
@@ -520,7 +521,7 @@ window.abrirQuincena = async () => {
     disponible,
     remanente_anterior,
     cerrada: false,
-    fecha_inicio: nuevaQState.fecha_inicio || hoyISO()
+    fecha_inicio: fechaInicio
   }]).select();
 
   if (!error && data) {
@@ -548,20 +549,24 @@ window.cerrarQuincena = async (id) => {
 };
 
 window.agregar = async () => {
-  const monto = parseFloat(formState.monto);
+  const monto = parseFloat(document.getElementById('f-monto')?.value || '');
   if (!monto || monto <= 0) { toast('Ingresa un monto válido'); return; }
   const qa = quincenaActiva();
   if (!qa) { toast('No hay quincena activa'); return; }
+  const cat = formState.cat;
+  const quien = formState.quien;
+  const desc = (document.getElementById('f-desc')?.value || '').trim();
+  const fecha = document.getElementById('f-fecha')?.value || hoyISO();
 
   const btn = document.querySelector('.btn-submit');
   if (btn) { btn.textContent = 'Guardando...'; btn.disabled = true; }
 
   const { data, error } = await sb.from('gastos').insert([{
-    fecha: formState.fecha || hoyISO(),
+    fecha,
     monto,
-    categoria: formState.cat,
-    descripcion: formState.desc || null,
-    quien: formState.quien,
+    categoria: cat,
+    descripcion: desc || null,
+    quien,
     quincena_id: qa.id
   }]).select();
 
